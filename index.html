@@ -356,6 +356,12 @@
     border: 1px solid var(--verde-terramova);
   }
 
+  .badge-bolsita {
+    background: rgba(156, 39, 176, 0.2);
+    color: #CE93D8;
+    border: 1px solid #9C27B0;
+  }
+
   .price-original {
     text-decoration: line-through;
     color: rgba(255, 255, 255, 0.5);
@@ -378,6 +384,34 @@
     margin-left: 8px;
   }
 
+  /* Botones */
+  .btn-comprar {
+    background: linear-gradient(135deg, var(--azul-turquesa), var(--azul-ceruleo));
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+  }
+
+  .btn-comprar:hover {
+    background: linear-gradient(135deg, var(--dorado), var(--dorado-claro));
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+    color: var(--azul-marino);
+  }
+
+  .btn-comprar:active {
+    transform: translateY(0);
+  }
+
   /* Footer */
   .footer {
     text-align: center;
@@ -393,6 +427,23 @@
     color: var(--dorado);
     font-weight: 700;
     font-size: 16px;
+  }
+
+  .store-link {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 25px;
+    background: linear-gradient(135deg, var(--verde-terramova), #34D399);
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+
+  .store-link:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(46, 139, 87, 0.4);
   }
 
   /* Canvas sizes */
@@ -457,6 +508,13 @@
       <div class="stat-number" id="totalRevenue">$3,430</div>
       <div class="stat-label">Ingreso Potencial</div>
     </div>
+  </div>
+
+  <!-- Tienda Link -->
+  <div style="text-align: center; margin: 30px 0;">
+    <a href="https://terramova.byethost5.com/1/projects/" target="_blank" class="store-link">
+      <i class="fas fa-store"></i> Visitar Tienda TERRAMOVA
+    </a>
   </div>
 
   <!-- Filtros -->
@@ -539,7 +597,7 @@
             <th>Precio Original</th>
             <th>Precio Actual</th>
             <th>Descuento</th>
-            <th>Acciones</th>
+            <th>Comprar</th>
           </tr>
         </thead>
         <tbody id="productsTableBody">
@@ -557,6 +615,9 @@
       <i class="fas fa-headset" style="color: var(--dorado);"></i> Asistencia 24/7 • 
       <i class="fas fa-heart" style="color: #FF6B6B;"></i> Experiencias memorables
     </p>
+    <a href="https://terramova.byethost5.com/1/projects/" target="_blank" class="store-link">
+      <i class="fas fa-external-link-alt"></i> Ir a la Tienda Completa
+    </a>
   </div>
 </div>
 
@@ -565,88 +626,112 @@
 // Datos de productos TERRAMOVA
 const products = [
   {
+    id: 1,
     name: "Bolsa",
     category: "accesorios",
     originalPrice: 220,
     currentPrice: 150,
-    description: "Bolsa de viaje práctica y elegante"
+    description: "Bolsa de viaje práctica y elegante",
+    storeUrl: "https://terramova.byethost5.com/1/projects/"
   },
   {
+    id: 2,
     name: "Bolsa de Accesorios",
     category: "accesorios",
     originalPrice: 320,
     currentPrice: 250,
-    description: "Organizador de accesorios para viaje"
+    description: "Organizador de accesorios para viaje",
+    storeUrl: "https://terramova.byethost5.com/1/projects/"
   },
   {
+    id: 3,
     name: "Botella de agua de acero inoxidable",
     category: "accesorios",
     originalPrice: 200,
     currentPrice: 180,
-    description: "Tapa estándar, ideal para viajes"
+    description: "Tapa estándar, ideal para viajes",
+    storeUrl: "https://terramova.byethost5.com/1/projects/"
   },
   {
+    id: 4,
     name: "Cobertura de Pasaporte",
     category: "accesorios",
     originalPrice: 200,
     currentPrice: 150,
-    description: "Protector de pasaporte con diseño premium"
+    description: "Protector de pasaporte con diseño premium",
+    storeUrl: "https://terramova.byethost5.com/1/projects/"
   },
   {
+    id: 5,
     name: "Gorra",
     category: "ropa",
     originalPrice: 250,
     currentPrice: 200,
-    description: "Gorra con logo TERRAMOVA"
+    description: "Gorra con logo TERRAMOVA",
+    storeUrl: "https://terramova.byethost5.com/1/projects/"
   },
   {
+    id: 6,
     name: "Llavero",
     category: "accesorios",
     originalPrice: 100,
     currentPrice: 70,
-    description: "Llavero metálico con diseño de viaje"
+    description: "Llavero metálico con diseño de viaje",
+    storeUrl: "https://terramova.byethost5.com/1/projects/"
   },
   {
+    id: 7,
     name: "Maleta",
     category: "maletas",
     originalPrice: 1199,
     currentPrice: 1100,
-    description: "Maleta de viaje resistente y espaciosa"
+    description: "Maleta de viaje resistente y espaciosa",
+    storeUrl: "https://terramova.byethost5.com/1/projects/"
   },
   {
+    id: 8,
     name: "Porta Pasaporte",
     category: "bolsita",
     originalPrice: 250,
     currentPrice: 200,
-    description: "Porta pasaporte de cuero con múltiples compartimentos"
+    description: "Porta pasaporte de cuero con múltiples compartimentos",
+    storeUrl: "https://terramova.byethost5.com/1/projects/"
   },
   {
+    id: 9,
     name: "Sabana",
     category: "accesorios",
     originalPrice: 300,
     currentPrice: 250,
-    description: "Sábana de viaje compacta y cómoda"
+    description: "Sábana de viaje compacta y cómoda",
+    storeUrl: "https://terramova.byethost5.com/1/projects/"
   },
   {
+    id: 10,
     name: "Sudadera Unisex Unitalla",
     category: "ropa",
     originalPrice: 400,
     currentPrice: 350,
-    description: "Sudadera cómoda para viajes"
+    description: "Sudadera cómoda para viajes",
+    storeUrl: "https://terramova.byethost5.com/1/projects/"
   },
   {
+    id: 11,
     name: "Tarjetero de piel Saffiano",
     category: "accesorios",
     originalPrice: 200,
     currentPrice: 150,
-    description: "Tarjetero de piel de alta calidad"
+    description: "Tarjetero de piel de alta calidad",
+    storeUrl: "https://terramova.byethost5.com/1/projects/"
   },
   {
+    id: 12,
     name: "Taza de viaje de acero inoxidable",
     category: "accesorios",
     originalPrice: 250,
     currentPrice: 180,
-    description: "Taza con asa, mantiene la temperatura"
+    description: "Taza con asa, mantiene la temperatura",
+    storeUrl: "https://terramova.byethost5.com/1/projects/"
   }
 ];
 
@@ -690,6 +775,7 @@ function renderProductsTable(filteredProducts = products) {
     if (product.category === 'accesorios') categoryClass = 'badge-accesorios';
     else if (product.category === 'ropa') categoryClass = 'badge-ropa';
     else if (product.category === 'maletas') categoryClass = 'badge-maletas';
+    else if (product.category === 'bolsita') categoryClass = 'badge-bolsita';
     else categoryClass = 'badge-accesorios';
     
     return `
@@ -723,9 +809,9 @@ function renderProductsTable(filteredProducts = products) {
           </div>
         </td>
         <td>
-          <button style="background: linear-gradient(135deg, var(--azul-turquesa), var(--azul-ceruleo)); color: white; border: none; padding: 8px 16px; border-radius: 8px; font-weight: 600; cursor: pointer; font-size: 14px;">
-            <i class="fas fa-cart-plus"></i> Agregar
-          </button>
+          <a href="${product.storeUrl}" target="_blank" class="btn-comprar">
+            <i class="fas fa-cart-plus"></i> Comprar
+          </a>
         </td>
       </tr>
     `;
@@ -927,6 +1013,18 @@ function updateCharts(filteredProducts) {
   barChart.data.datasets[0].data = sortedProducts.map(p => p.originalPrice);
   barChart.data.datasets[1].data = sortedProducts.map(p => p.currentPrice);
   barChart.update();
+}
+
+// Función para agregar al carrito (opcional - para futuras mejoras)
+function addToCart(productId) {
+  const product = products.find(p => p.id === productId);
+  if (product) {
+    alert(`¡${product.name} agregado al carrito!\nRedirigiendo a la tienda...`);
+    // Redirige a la tienda después de 1 segundo
+    setTimeout(() => {
+      window.open(product.storeUrl, '_blank');
+    }, 1000);
+  }
 }
 </script>
 </body>
